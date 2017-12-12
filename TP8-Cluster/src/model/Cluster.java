@@ -1,4 +1,4 @@
-package model;
+/*package model;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -18,9 +18,11 @@ public class Cluster {
 	private Map<String, Set<String>>dependencias; 
 	private Map<String, Set<String>>dependenciasCluster; 
 	private boolean primeiroCluster = true;
+	PriorityQueue<Entry> queue = new PriorityQueue<>();
 	
 	public Cluster() {
 		this.classesClusters = new HashSet<>();
+		similaridadeCluster = new ArrayList<>();
 		this.dependenciasCluster = new HashMap<>();
 		filaDeSimilaridades = new ArrayList<Entry>();
 	}
@@ -33,7 +35,6 @@ public class Cluster {
 				analyse(classe1, classe2, dependencias );
 			}
 		}
-		String oi;
 		Entry maiorSimilaridade = filaDePrioridadeSimilaridades(filaDeSimilaridades);
 		System.out.println("Maior similaridade: " + maiorSimilaridade.getDadosClasses().getNameClass1());
 		String c1 = maiorSimilaridade.getDadosClasses().getNameClass1();
@@ -93,8 +94,8 @@ public class Cluster {
 				cont++;
 				analysedClass.add(inverte);
 				Similaridade novaSimilaridade = new Similaridade(c1,c2,totalSimilaridade);
-			//	similaridadeCluster.add(novaSimilaridade);
-				filaDeSimilaridades.add(new Entry(novaSimilaridade));
+				similaridadeCluster.add(novaSimilaridade);
+				filaDeSimilaridades.add(new Entry(c1, c2, totalSimilaridade));
 
 				//entradas.add(new Entry(classesSeraoAnalisadas, totalSimilaridade));
 
@@ -156,8 +157,7 @@ public class Cluster {
 
 	}
 	private Entry filaDePrioridadeSimilaridades(ArrayList<Entry> fila) {
-
-		PriorityQueue<Entry> queue = new PriorityQueue<>();
+		
 		queue.addAll(fila);
 		Entry maiorPrioridade = null;
 		if (!queue.isEmpty()) {
@@ -175,3 +175,4 @@ public class Cluster {
 		return depCluster;
 	}
 }
+*/
